@@ -1,0 +1,39 @@
+.simon-button {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.red {
+  background-color: rgba(179, 0, 0, 0.7);
+}
+
+.blue {
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+.green {
+  background-color: rgba(0, 153, 51, 0.7);
+}
+
+.yellow {
+  background-color: rgba(230, 230, 0, 0.7);
+}
+
+.red-highlight {
+  background-color: rgb(255, 26, 26);
+}
+
+.blue-highlight {
+  background-color: rgb(102, 255, 255);
+}
+
+.yellow-highlight {
+  background-color: rgb(255, 255, 0);
+}
+
+.green-highlight {
+  background-color: rgb(0, 255, 0);
+}
