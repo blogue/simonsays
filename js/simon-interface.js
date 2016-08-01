@@ -8,6 +8,8 @@ $(document).ready(function(){
     var attemptArray = [];
     $(".simon-button").click(function(){
       var color = $(this).attr("id");
+      $("."+color).addClass(color+"-highlight");
+      setTimeout(function(){$('.'+color).removeClass(color+'-highlight');},200);
       attemptArray.push(color);
       if (attemptArray.length == game.colorArray.length) {
         var bool = game.attempt(attemptArray);
@@ -15,7 +17,7 @@ $(document).ready(function(){
         else {
           attemptArray = [];
           game.addColor();
-          drawColors(game.colorArray);
+          setTimeout(function(){drawColors(game.colorArray);},500);    
         }
       }
     });

@@ -8,6 +8,8 @@ $(document).ready(function(){
     var attemptArray = [];
     $(".simon-button").click(function(){
       var color = $(this).attr("id");
+      $("."+color).addClass(color+"-highlight");
+      setTimeout(function(){$('.'+color).removeClass(color+'-highlight');},200);
       attemptArray.push(color);
       if (attemptArray.length == game.colorArray.length) {
         var bool = game.attempt(attemptArray);
@@ -15,7 +17,7 @@ $(document).ready(function(){
         else {
           attemptArray = [];
           game.addColor();
-          drawColors(game.colorArray);
+          setTimeout(function(){drawColors(game.colorArray);},500);    
         }
       }
     });
@@ -23,11 +25,9 @@ $(document).ready(function(){
 });
 
 var drawColors = function(colorArray) {
-  $("#colors").empty();
   var i = 0;
-  var color = colorArray[i];
-  var drawColor = setInterval(function(color){
-    switch(color) {
+  var drawColor = setInterval(function(){
+    switch(colorArray[i]) {
       case "red":
         $(".red").addClass("red-highlight");
         setTimeout(function(){$('.red').removeClass('red-highlight');}, 200);
@@ -47,7 +47,6 @@ var drawColors = function(colorArray) {
       default:
         break;
     }
-    // $("#colors").append("<li>"+colorArray[i]+"</li>");
     i++;
     if (i === colorArray.length) clearInterval(drawColor);
   }, 400);
